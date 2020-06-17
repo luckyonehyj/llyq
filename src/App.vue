@@ -1,20 +1,19 @@
 <template>
   <div id="app">
-      <home></home>
-      
+      <keep-alive>
+        <router-view />
+    </keep-alive>
   </div>
 </template>
 
 <script scoped>
-import Home from "@/views/Home/Home"
-// import Detail from "@views/Detail/Detail"
+
 export default {
   data() {
     return {};
   },
   components: {
-    Home,
-    // Detail
+
   }
 };
 </script>
