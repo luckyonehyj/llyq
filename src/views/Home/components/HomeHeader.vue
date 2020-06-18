@@ -1,7 +1,7 @@
 <template>
   <div class="home-header">
     <h1 class="title">零陵舆情专报</h1>
-    <span class="el-icon-chat-line-square"></span>
+    <span class="el-icon-chat-line-round"></span>
     <h5 class="subtitile">零陵区委网信办 报送>></h5>
   </div>
 </template>
@@ -34,11 +34,11 @@ export default {
     font-weight: 550
   }
 
-  .el-icon-chat-line-square {
+  .el-icon-chat-line-round {
     position: absolute;
     top: 0.6rem;
     right: 0.7rem;
-    font-size: 1rem;
+    font-size: .9rem;
   }
 }
 </style>

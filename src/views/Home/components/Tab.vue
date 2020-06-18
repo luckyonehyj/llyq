@@ -2,7 +2,8 @@
   <div id="tab">
     <el-tabs v-model="activeName" @tab-click="handleClick" stretch tab-position="top">
       <el-tab-pane label="零陵舆情" name="yuqing">
-        <list :list="list"></list>
+        <list :list="list">
+        </list>
       </el-tab-pane>
       <el-tab-pane label="敏感信息" name="mingan">
         <list :list="list"></list>
