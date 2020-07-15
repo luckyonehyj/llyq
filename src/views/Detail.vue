@@ -1,9 +1,9 @@
 <template>
   <div id="detail">
-    <el-backtop  :bottom="40" :right="20"></el-backtop>
+    <el-backtop :bottom="40" :right="20"></el-backtop>
     <el-page-header @back="goBack" content="详情页面"></el-page-header>
     <h1 class="title">{{title}}</h1>
-    <p class="content">{{content}}</p>
+    <p class="content" v-html="content"></p>
   </div>
 </template>
 
@@ -43,41 +43,49 @@ export default {
   bottom: 0;
 
   .el-page-header {
-    padding: 0.3rem 0.18rem;
+    padding: 0.4rem 0.18rem;
     position: sticky;
     top: 0;
     color: #666;
-    background-color: #fff
+    background-color: #fff;
+
     .el-icon-back {
-      font-size: 0.7rem !important;
+      font-size: 0.5rem !important;
       padding-right: 0.2rem;
-      font-weight: 600
-      color:#3385ff
     }
 
     .el-page-header__title {
-      font-size: 0.45rem !important;
-      font-weight: 600
-      color:#3385ff
+      font-size: 0.42rem !important;
     }
 
     .el-page-header__content {
       color: #666;
-      font-size: 0.45rem !important;
-
+      font-size: 0.42rem !important;
     }
   }
+
   .title {
     display: flex;
     font-weight: 700;
     padding: 0 0.5rem;
     font-size: 0.48rem;
+    margin: 0.2rem 0;
   }
 
   .content {
-    margin: 0.3rem 0.25rem .3rem 0.45rem;
-    font-size: 0.4rem;
+    margin: 0 0.25rem 0.3rem 0.45rem;
+    font-size: 0.38rem;
     line-height: 0.7rem;
+    white-space: pre-line;
+
+    p {
+      text-indent: 1.5em;
+      margin: 0.2rem 0;
+    }
+
+    img {
+      width: 90vw;
+    }
   }
 }
 </style>
