@@ -81,6 +81,11 @@ export default {
     p {
       text-indent: 1.5em;
       margin: 0.2rem 0;
+
+      a {
+        word-wrap: break-word;
+        font-size: 0.3rem;
+      }
     }
 
     img {

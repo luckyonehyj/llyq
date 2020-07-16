@@ -1,6 +1,6 @@
 <template>
   <div class="home-header">
-    <h1 class="title">零陵舆情专报</h1>
+    <h1 class="title">涉零舆情专报</h1>
     <span class="el-icon-chat-line-round"></span>
     <h3 class="subtitile">零陵区委网信办 报送>></h3>
   </div>
