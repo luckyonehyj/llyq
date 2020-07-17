@@ -48,9 +48,10 @@ export default {
     return {
       activeName: "1",
       list: [],
+      num: [],
       titleUrl: "getDate.php",
       numUrl: "FindDataType.php",
-      num: []
+      dutyUrl: "FindDataName.php"
     };
   },
   computed: {
@@ -82,12 +83,18 @@ export default {
       this.$http.post(this.numUrl).then(function(res) {
         this.num = res.body[0];
       });
+    },
+    getDuty() {
+      this.$http.post(this.dutyUrl).then(function(res) {
+        sessionStorage.setItem("duty", JSON.stringify(res.body[0]));
+      });
     }
   },
   mounted() {
     this.getList();
     this.getTitle();
     this.getNum();
+    this.getDuty();
   }
 };
 </script>

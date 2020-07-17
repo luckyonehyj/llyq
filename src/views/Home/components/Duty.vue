@@ -1,14 +1,19 @@
 <template>
   <div id="duty">
-    <div>值班领导：张三</div>
-    <div>处置值班：李四</div>
-    <div>监看值班：王五</div>
+    <div>值班领导：{{duty.zhiban}}</div>
+    <div>处置值班：{{duty.chuzhi}}</div>
+    <div>监看值班：{{duty.jiankan}}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "duty"
+  name: "duty",
+  computed: {
+    duty() {
+      return JSON.parse(sessionStorage.getItem("duty"));
+    }
+  }
 };
 </script>
 

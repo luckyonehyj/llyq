@@ -38,6 +38,7 @@ export default {
     },
     goDetail(e) {
       const url = e.currentTarget.dataset.url;
+      console.log(url);
       if (url == "") {
         sessionStorage.setItem("title", e.currentTarget.dataset.title);
         sessionStorage.setItem("content", e.currentTarget.dataset.content);

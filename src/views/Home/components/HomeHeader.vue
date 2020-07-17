@@ -22,6 +22,7 @@ export default {
 <style lang="stylus" scoped>
 .home-header {
   position: relative;
+  overflow: hidden;
   padding: 0.2rem 0.5rem 0.5rem;
   color: white;
   background-color: rgb(51, 133, 255);
@@ -30,12 +31,15 @@ export default {
   .title {
     font-size: 0.7rem;
     font-weight: 700;
-    margin: 0.2rem 0;
+    padding: 0.3rem 0;
+    margin: 0;
+    box-sizing: border-box;
   }
 
   .subtitile {
     font-size: 0.35rem;
     font-weight: 500;
+    margin: 0 0 0.2rem 0;
   }
 
   .el-icon-monitor {
