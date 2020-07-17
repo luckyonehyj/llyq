@@ -1,22 +1,24 @@
 <template>
   <div id="home">
-    <el-backtop  :bottom="40" :right="20">
-    </el-backtop>
+    <el-backtop :bottom="40" :right="20"></el-backtop>
     <home-header></home-header>
     <tab class="tab"></tab>
+    <duty></duty>
   </div>
 </template>
 
 <script scoped>
 import HomeHeader from "./components/HomeHeader";
 import Tab from "./components/Tab";
+import Duty from "./components/Duty";
 export default {
   data() {
     return {};
   },
   components: {
     HomeHeader,
-    Tab
+    Tab,
+    Duty
   }
 };
 </script>

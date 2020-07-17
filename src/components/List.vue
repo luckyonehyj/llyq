@@ -7,6 +7,7 @@
         class="infinite-list-item"
         :data-title="item.title"
         :data-content="item.content"
+        :data-url="item.url"
         @click="goDetail"
       >
         <div class="title">{{index+1}}. {{item.title}}</div>
@@ -36,11 +37,16 @@ export default {
       this.count += 4;
     },
     goDetail(e) {
-      sessionStorage.setItem("title", e.currentTarget.dataset.title);
-      sessionStorage.setItem("content", e.currentTarget.dataset.content);
-      this.$router.push({
-        name: "Detail"
-      });
+      const url = e.currentTarget.dataset.url;
+      if (url == "") {
+        sessionStorage.setItem("title", e.currentTarget.dataset.title);
+        sessionStorage.setItem("content", e.currentTarget.dataset.content);
+        this.$router.push({
+          name: "Detail"
+        });
+      } else {
+        window.location.href = url;
+      }
     }
   },
   watch: {
@@ -69,8 +75,12 @@ export default {
       color: #424242;
       padding: 0.25rem 0.1rem;
 
+      &:last-child {
+        border-bottom: none;
+      }
+
       .title {
-        font-size: 0.38rem;
+        font-size: 0.4rem;
         line-height: 0.55rem;
         font-weight: 550;
         margin-bottom: 0.1rem;
@@ -80,8 +90,9 @@ export default {
       }
 
       .introduction {
-        font-size: 0.32rem;
-        line-height: 0.5rem;
+        font-size: 0.35rem;
+        color: #999;
+        line-height: 0.6rem;
         padding: 0 0.1rem 0 0.3rem;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -94,11 +105,10 @@ export default {
 
   .no-list {
     font-size: 0.4rem;
-    height: 13.9rem;
     display: flex;
     justify-content: center;
     box-sizing: border-box;
-    padding-top: 5.5rem;
+    padding-top: 4.4rem;
   }
 }
 </style>

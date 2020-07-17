@@ -1,7 +1,7 @@
 <template>
   <div id="detail">
     <el-backtop :bottom="40" :right="20"></el-backtop>
-    <el-page-header @back="goBack" content="详情页面"></el-page-header>
+    <el-page-header @back="goBack"></el-page-header>
     <h1 class="title">{{title}}</h1>
     <p class="content" v-html="content"></p>
   </div>
@@ -50,17 +50,17 @@ export default {
     background-color: #fff;
 
     .el-icon-back {
-      font-size: 0.5rem !important;
+      font-size: 0.6rem !important;
       padding-right: 0.2rem;
     }
 
     .el-page-header__title {
-      font-size: 0.42rem !important;
+      font-size: 0.6rem !important;
     }
 
     .el-page-header__content {
       color: #666;
-      font-size: 0.42rem !important;
+      font-size: 0.6rem !important;
     }
   }
 
@@ -68,19 +68,20 @@ export default {
     display: flex;
     font-weight: 700;
     padding: 0 0.5rem;
-    font-size: 0.48rem;
-    margin: 0.2rem 0;
+    font-size: 0.6rem;
+    margin: 0.5rem 0;
   }
 
   .content {
     margin: 0 0.25rem 0.3rem 0.45rem;
-    font-size: 0.38rem;
-    line-height: 0.7rem;
+    font-size: 0.5rem;
     white-space: pre-line;
+    color: #333;
 
     p {
-      text-indent: 1.5em;
+      text-indent: 1em;
       margin: 0.2rem 0;
+      line-height: 1rem;
 
       a {
         word-wrap: break-word;
@@ -89,7 +90,11 @@ export default {
     }
 
     img {
-      width: 90vw;
+      width: 100vw;
+
+      &:first-child {
+        margin-left: -1.5em;
+      }
     }
   }
 }
