@@ -5,7 +5,7 @@
         <span slot="label">
           <div>
             涉零舆情
-            <span class="num">{{num.yuqing}}</span>
+            <span class="num">{{yuqingNum}}</span>
           </div>
         </span>
         <list :list="list"></list>
@@ -14,7 +14,7 @@
         <span slot="label">
           <div>
             敏感信息
-            <span class="num">{{num.mingan}}</span>
+            <span class="num">{{minganNum}}</span>
           </div>
         </span>
         <list :list="list"></list>
@@ -23,7 +23,7 @@
         <span slot="label">
           <div>
             贴文信息
-            <span class="num">{{num.tiewen}}</span>
+            <span class="num">{{tiewenNum}}</span>
           </div>
         </span>
         <list :list="list"></list>
@@ -32,7 +32,7 @@
         <span slot="label">
           <div>
             社会热点
-            <span class="num">{{num.redian}}</span>
+            <span class="num">{{redianNum}}</span>
           </div>
         </span>
         <list :list="list"></list>
@@ -48,10 +48,11 @@ export default {
     return {
       activeName: "1",
       list: [],
-      num: [],
-      titleUrl: "getDate.php",
-      numUrl: "FindDataType.php",
-      dutyUrl: "FindDataName.php"
+      yuqingNum: "",
+      minganNum: "",
+      tiewenNum: "",
+      redianNum: "",
+      url: "FindDataIndex.php" //获取title,number,duty的接口
     };
   },
   computed: {
@@ -69,32 +70,22 @@ export default {
     getList() {
       this.$http.post(this.listUrl).then(function(res) {
         this.list = res.body;
-        if (res.data.number) {
-          this.number = res.data.number;
-        }
       });
     },
-    getTitle() {
-      this.$http.post(this.titleUrl).then(function(res) {
-        sessionStorage.setItem("headTitle", res.body);
-      });
-    },
-    getNum() {
-      this.$http.post(this.numUrl).then(function(res) {
-        this.num = res.body[0];
-      });
-    },
-    getDuty() {
-      this.$http.post(this.dutyUrl).then(function(res) {
-        sessionStorage.setItem("duty", JSON.stringify(res.body[0]));
+    getData() {
+      this.$http.post(this.url).then(function(res) {
+        const data = res.body[0];
+        sessionStorage.setItem("data", JSON.stringify(data));
+        this.yuqingNum = data.yuqing;
+        this.minganNum = data.mingan;
+        this.tiewenNum = data.tiewen;
+        this.redianNum = data.redian;
       });
     }
   },
   mounted() {
     this.getList();
-    this.getTitle();
-    this.getNum();
-    this.getDuty();
+    this.getData();
   }
 };
 </script>

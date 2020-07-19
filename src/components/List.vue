@@ -38,7 +38,6 @@ export default {
     },
     goDetail(e) {
       const url = e.currentTarget.dataset.url;
-      console.log(url);
       if (url == "") {
         sessionStorage.setItem("title", e.currentTarget.dataset.title);
         sessionStorage.setItem("content", e.currentTarget.dataset.content);
@@ -46,7 +45,12 @@ export default {
           name: "Detail"
         });
       } else {
-        window.location.href = url;
+        const prefix = url.substr(0, 4);
+        if (prefix == "http") {
+          window.location.href = url;
+        } else {
+          window.location.href = "http://" + url;
+        }
       }
     }
   },

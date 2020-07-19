@@ -12,7 +12,7 @@ export default {
 
   computed: {
     headTitle() {
-      return sessionStorage.getItem("headTitle");
+      return JSON.parse(sessionStorage.getItem("data")).title;
     }
   }
 };

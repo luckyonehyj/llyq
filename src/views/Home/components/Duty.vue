@@ -1,8 +1,8 @@
 <template>
   <div id="duty">
-    <div>值班领导：{{duty.zhiban}}</div>
-    <div>处置值班：{{duty.chuzhi}}</div>
-    <div>监看值班：{{duty.jiankan}}</div>
+    <div>值班领导：{{zhiban}}</div>
+    <div>处置值班：{{chuzhi}}</div>
+    <div>监看值班：{{jiankan}}</div>
   </div>
 </template>
 
@@ -10,8 +10,14 @@
 export default {
   name: "duty",
   computed: {
-    duty() {
-      return JSON.parse(sessionStorage.getItem("duty"));
+    zhiban() {
+      return JSON.parse(sessionStorage.getItem("data")).zhiban;
+    },
+    chuzhi() {
+      return JSON.parse(sessionStorage.getItem("data")).chuzhi;
+    },
+    jiankan() {
+      return JSON.parse(sessionStorage.getItem("data")).jiankan;
     }
   }
 };
