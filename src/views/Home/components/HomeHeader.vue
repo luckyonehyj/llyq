@@ -14,6 +14,9 @@ export default {
     headTitle() {
       return JSON.parse(sessionStorage.getItem("data")).title;
     }
+  },
+  created() {
+    document.title = this.headTitle;
   }
 };
 </script>

@@ -70,6 +70,7 @@ export default {
     padding: 0 0.5rem;
     font-size: 0.6rem;
     margin: 0.5rem 0;
+    word-break: break-all;
   }
 
   .content {
@@ -82,6 +83,7 @@ export default {
       text-indent: 1em;
       margin: 0.2rem 0;
       line-height: 1rem;
+      word-break: break-all;
 
       a {
         word-wrap: break-word;
