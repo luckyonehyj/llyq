@@ -11,13 +11,13 @@ export default {
   name: "duty",
   computed: {
     zhiban() {
-      return JSON.parse(sessionStorage.getItem("data")).zhiban;
+      return this.$store.state.zhiban;
     },
     chuzhi() {
-      return JSON.parse(sessionStorage.getItem("data")).chuzhi;
+      return this.$store.state.chuzhi;
     },
     jiankan() {
-      return JSON.parse(sessionStorage.getItem("data")).jiankan;
+      return this.$store.state.jiankan;
     }
   }
 };

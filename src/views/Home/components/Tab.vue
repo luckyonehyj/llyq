@@ -48,16 +48,24 @@ export default {
     return {
       activeName: "1",
       list: [],
-      yuqingNum: "",
-      minganNum: "",
-      tiewenNum: "",
-      redianNum: "",
       url: "FindDataIndex.php" //获取title,number,duty的接口
     };
   },
   computed: {
     listUrl() {
       return "FindDataType" + this.activeName + ".php";
+    },
+    yuqingNum() {
+      return this.$store.state.yuqingNum;
+    },
+    minganNum() {
+      return this.$store.state.minganNum;
+    },
+    tiewenNum() {
+      return this.$store.state.tiewenNum;
+    },
+    redianNum() {
+      return this.$store.state.redianNum;
     }
   },
   components: {
@@ -75,11 +83,15 @@ export default {
     getData() {
       this.$http.post(this.url).then(function(res) {
         const data = res.body[0];
-        sessionStorage.setItem("data", JSON.stringify(data));
-        this.yuqingNum = data.yuqing;
-        this.minganNum = data.mingan;
-        this.tiewenNum = data.tiewen;
-        this.redianNum = data.redian;
+        // this.$store.commit("updateTitle", data.title);
+        sessionStorage.setItem("headTitle", data.title); //用vuex存放的话，设置页面title时获取不到
+        this.$store.commit("updateNum1", data.yuqing);
+        this.$store.commit("updateNum2", data.mingan);
+        this.$store.commit("updateNum3", data.tiewen);
+        this.$store.commit("updateNum4", data.redian);
+        this.$store.commit("updateZhiban", data.zhiban);
+        this.$store.commit("updateChuzhi", data.chuzhi);
+        this.$store.commit("updateJiankan", data.jiankan);
       });
     }
   },

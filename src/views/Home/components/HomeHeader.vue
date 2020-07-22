@@ -12,10 +12,10 @@ export default {
 
   computed: {
     headTitle() {
-      return JSON.parse(sessionStorage.getItem("data")).title;
+      return sessionStorage.getItem("headTitle");
     }
   },
-  created() {
+  mounted() {
     document.title = this.headTitle;
   }
 };

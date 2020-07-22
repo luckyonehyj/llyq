@@ -68,7 +68,7 @@ export default {
     display: flex;
     font-weight: 700;
     padding: 0 0.5rem;
-    font-size: 0.6rem;
+    font-size: 0.64rem;
     margin: 0.5rem 0;
     word-break: break-all;
   }
@@ -88,6 +88,7 @@ export default {
       a {
         word-wrap: break-word;
         font-size: 0.3rem;
+        font-size: 0.5rem;
       }
     }
 
