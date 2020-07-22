@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        // headTitle: "",
+        headTitle: "",
         yuqingNum: "",
         tiewenNum: "",
         minganNum: "",
@@ -15,9 +15,9 @@ export default new Vuex.Store({
         jiankan: ""
     },
     mutations: {
-        // updateTitle(state, title) {
-        //     state.headTitle = title
-        // },
+        updateTitle(state, title) {
+            state.headTitle = title
+        },
         updateNum1(state, num) {
             state.yuqingNum = num
         },
@@ -40,6 +40,6 @@ export default new Vuex.Store({
             state.jiankan = duty
         },
     },
-    actions: {},
+
     modules: {}
 })

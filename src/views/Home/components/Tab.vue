@@ -83,8 +83,7 @@ export default {
     getData() {
       this.$http.post(this.url).then(function(res) {
         const data = res.body[0];
-        // this.$store.commit("updateTitle", data.title);
-        sessionStorage.setItem("headTitle", data.title); //用vuex存放的话，设置页面title时获取不到
+        this.$store.commit("updateTitle", data.title);
         this.$store.commit("updateNum1", data.yuqing);
         this.$store.commit("updateNum2", data.mingan);
         this.$store.commit("updateNum3", data.tiewen);
@@ -98,6 +97,11 @@ export default {
   mounted() {
     this.getList();
     this.getData();
+  },
+  watch: {
+    "$store.state.headTitle"(newTitle) {
+      document.title = newTitle;
+    }
   }
 };
 </script>

@@ -12,11 +12,8 @@ export default {
 
   computed: {
     headTitle() {
-      return sessionStorage.getItem("headTitle");
+      return this.$store.state.headTitle;
     }
-  },
-  mounted() {
-    document.title = this.headTitle;
   }
 };
 </script>
